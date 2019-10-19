@@ -1,0 +1,81 @@
+{
+  "name": "insertX",
+  "displayName": "insertX",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.39.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "insertX.insert",
+        "title": "InsertX one",
+        "description": "Insert a text at the current position(s)."
+      },
+      {
+        "command": "insertX.insertMany",
+        "title": "InsertX many",
+        "description": "Insert unique text at each position."
+      }
+    ],
+    "configuration": {
+      "title": "InsertX configuration",
+      "properties": {
+        "insertGuid.showCodeSnippets": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show Code Snippets."
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "insertX.insert",
+        "key": "ctrl+shift+[",
+        "mac": "cmd+shift+[",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "insertX.insertMany",
+        "key": "alt+ctrl+shift+[",
+        "mac": "alt+cmd+shift+[",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onCommand:insertX.insert",
+    "onCommand:insertX.insertMany"
+  ],
+  "galleryBanner": {
+    "color": "#252526",
+    "theme": "dark"
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "dependencies": {
+    "@types/uuid": "^3.4.5",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^10.12.21",
+    "@types/vscode": "^1.39.0",
+    "glob": "^7.1.4",
+    "mocha": "^6.1.4",
+    "typescript": "^3.3.1",
+    "tslint": "^5.12.1",
+    "vscode-test": "^1.2.0"
+  }
+}
